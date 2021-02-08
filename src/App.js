@@ -28,7 +28,7 @@ function App() {
       <>
          <Header />
          <Restaurant data={data.restaurant} />
-         <Menu data={data} />
+         <Menu data={data.categories} />
       </>
    );
 }
