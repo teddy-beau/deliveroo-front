@@ -130,6 +130,8 @@ header {
       }
    }
    .cart {
+      position: sticky;
+      top: 10px;
       width: 350px;
       height: 100%;
       min-height: 180px;
@@ -159,6 +161,54 @@ header {
       span {
          color: #868a8a;
          font-weight: 300;
+      }
+   }
+}
+
+@media (max-width: 1200px) {
+   .meal-list {
+      //   display: block;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      //   background-color: aquamarine;
+   }
+   .meal-card {
+      width: 100% !important;
+   }
+}
+@media (max-width: 780px) {
+   .restaurant-info {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 0;
+      p {
+         margin: 0 0 20px 0;
+      }
+      img {
+         width: 106%;
+         margin-left: -4%;
+         height: 170px;
+         border-radius: 0;
+      }
+   }
+   .content {
+      flex-direction: column;
+      padding-bottom: 0;
+      .menu-items {
+         margin: 0;
+         .meal-list {
+            .meal-card {
+               height: auto;
+               padding: 10px !important;
+            }
+         }
+      }
+      .cart {
+         position: sticky;
+         bottom: 0px;
+         width: 100%;
+         box-shadow: 0px -20px 20px rgba(50, 50, 50, 0.1);
       }
    }
 }
