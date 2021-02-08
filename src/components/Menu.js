@@ -1,4 +1,5 @@
 import Meal from "./Meal";
+import Cart from "./Cart";
 
 const Menu = ({ data }) => {
    return (
@@ -16,7 +17,7 @@ const Menu = ({ data }) => {
                   );
                })}
             </div>
-            <aside className="cart">Votre panier est vide</aside>
+            <Cart />
          </div>
       </div>
    );
