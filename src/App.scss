@@ -1,0 +1,51 @@
+.container {
+   font-family: "IBM Plex Sans", sans-serif;
+   font-weight: 400;
+   &.header {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 50px;
+   }
+   &.restaurant {
+      margin-bottom: 50px;
+   }
+   &.menu {
+      background-color: #f3f5f5;
+      margin-bottom: 50px;
+   }
+}
+
+header {
+   max-width: 1024px;
+   margin: auto;
+   img {
+      height: 60px;
+   }
+}
+main {
+   max-width: 1024px;
+   margin: auto;
+   padding: 10px;
+   display: flex;
+   div {
+      flex: 1;
+      margin-right: 10px;
+      h1 {
+         font-size: 32px;
+      }
+      p {
+         font-size: 19px;
+         //  font-weight: 500;
+         color: #868a8a;
+      }
+   }
+   img {
+      max-width: 350px;
+      height: 100%;
+      object-fit: cover;
+   }
+}
+section {
+   max-width: 1024px;
+   margin: auto;
+   padding: 10px;
+}

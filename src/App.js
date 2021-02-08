@@ -1,6 +1,9 @@
-import "./App.css";
+import "./App.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import Restaurant from "./components/Restaurant";
+import Menu from "./components/Menu";
 
 function App() {
    const [data, setData] = useState([]);
@@ -8,7 +11,8 @@ function App() {
 
    const fetchData = async () => {
       try {
-         const response = await axios.get("http://localhost:3000/");
+         const response = await axios.get("http://localhost:3100");
+         //  console.log(response.data);
          setData(response.data);
          setIsLoading(false);
       } catch (error) {
@@ -21,7 +25,11 @@ function App() {
    return isLoading ? (
       <span>En cours de chargement...</span>
    ) : (
-      <div>{data.restaurant.name}</div>
+      <>
+         <Header />
+         <Restaurant data={data.restaurant} />
+         <Menu data={data} />
+      </>
    );
 }
 
