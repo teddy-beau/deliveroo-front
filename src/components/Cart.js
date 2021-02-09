@@ -6,7 +6,10 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
 
    return (
       <aside className="cart">
-         <button className={cart.length > 0 ? "active" : ""}>
+         <button
+            className={cart.length > 0 ? "active" : ""}
+            onClick={alert("Sorry, I can't accept your money ;)")}
+         >
             Valider mon panier
          </button>
          {cart.length > 0 ? (
