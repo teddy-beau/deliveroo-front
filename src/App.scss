@@ -167,11 +167,8 @@ header {
 
 @media (max-width: 1200px) {
    .meal-list {
-      //   display: block;
       flex-direction: column;
       flex-wrap: nowrap;
-
-      //   background-color: aquamarine;
    }
    .meal-card {
       width: 100% !important;
