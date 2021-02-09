@@ -1,4 +1,4 @@
-const Meal = ({ meal, cart, setCart }) => {
+const Meal = ({ category, meal, cart, setCart }) => {
    // Deal with descriptions when too long
    let shortDescription = "";
    const wordsInDescription = meal.description.split(" ");
@@ -9,28 +9,33 @@ const Meal = ({ meal, cart, setCart }) => {
    } else {
       shortDescription = meal.description;
    }
+   console.log("cat", category);
 
    const handleAddToCart = () => {
       if (cart.length === 0) {
+         console.log("Main if");
          const newCart = [...cart];
          newCart.push({
             id: meal.id,
             quantity: 1,
-            name: meal.name,
+            title: meal.title,
             price: meal.price,
          });
          setCart(newCart);
       } else {
+         console.log("Main else");
          const newCart = [...cart];
          newCart.map((newCartItem) => {
             if (newCartItem.id === meal.id) {
+               console.log("Main else, then if");
                newCartItem.quantity += 1;
                setCart(newCart);
             } else {
+               console.log("Main else, then else");
                newCart.push({
                   id: meal.id,
                   quantity: 1,
-                  name: meal.name,
+                  title: meal.title,
                   price: meal.price,
                });
                setCart(newCart);
