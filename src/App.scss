@@ -158,10 +158,19 @@ header {
             color: #ffffff;
          }
       }
-      span {
-         color: #868a8a;
-         font-weight: 300;
+      > div {
+         width: 100%;
+         margin-bottom: 10px;
+         &:nth-child(1) {
+            color: #868a8a;
+            font-weight: 300;
+         }
       }
+      // .order-details {
+      //    color: #868a8a;
+      //    font-weight: 300;
+      //    margin-bottom: 10px;
+      // }
    }
 }
 

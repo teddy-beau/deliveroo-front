@@ -12,8 +12,9 @@ const Meal = ({ data, meal, cart, setCart }) => {
    // console.log("data", data);
 
    const handleAddToCart = () => {
+      const newCart = [...cart];
       if (cart.length === 0) {
-         const newCart = [...cart];
+         console.log("New item created");
          newCart.push({
             id: meal.id,
             quantity: 1,
@@ -22,10 +23,10 @@ const Meal = ({ data, meal, cart, setCart }) => {
          });
          setCart(newCart);
       } else {
-         const newCart = [...cart];
-         newCart.map((cartItem) => {
-            if (meal.id === cartItem.id) {
-               cartItem.quantity += 1;
+         for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === meal.id) {
+               console.log("Added to existing");
+               cart[i].quantity += 1;
                setCart(newCart);
             } else {
                newCart.push({
@@ -36,7 +37,7 @@ const Meal = ({ data, meal, cart, setCart }) => {
                });
                setCart(newCart);
             }
-         });
+         }
       }
    };
 
