@@ -49,16 +49,14 @@ const MainContent = ({ data }) => {
       if (itemInCart) {
          for (let i = 0; i < newCart.length; i++) {
             if (newCart[i].id === meal.id) {
-               if (newCart[i].quantity >= 1) {
-                  console.log("1 unit removed from existing");
-                  newCart[i].quantity -= 1;
-                  setCart(newCart);
-                  // If the quantity is now 0 the item is removed from the cart
-               } else {
-                  console.log("Item removed from cart");
+               console.log("1 unit removed from existing");
+               newCart[i].quantity -= 1;
+               // If the quantity is now 0 the item is removed from the cart
+               if (newCart[i].quantity === 0) {
                   newCart.splice(newCart[i], 1);
-                  setCart(newCart);
+                  console.log("Item removed from cart");
                }
+               setCart(newCart);
             }
          }
       }

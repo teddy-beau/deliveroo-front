@@ -14,7 +14,7 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                <div className="order-details">
                   {cart.map((item) => {
                      subTotal += item.quantity * item.price;
-                     console.log("Cart length", cart.length);
+                     console.log("Cart", cart);
                      return (
                         item.quantity > 0 && (
                            <div key={item.id}>
