@@ -1,4 +1,6 @@
-const Cart = ({ data, cart, setCart }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
    let subTotal = 0;
    let delivery = 2.5;
 
@@ -8,22 +10,39 @@ const Cart = ({ data, cart, setCart }) => {
             Valider mon panier
          </button>
          {cart.length > 0 ? (
-            <>
-               <div>
+            <div>
+               <div className="order-details">
                   {cart.map((item) => {
                      subTotal += item.quantity * item.price;
+                     console.log("Cart length", cart.length);
                      return (
-                        <div key={item.id}>
-                           <span>{item.quantity} • </span>
-                           <span>{item.title} • </span>
-                           <span>
-                              {Number(item.price).toFixed(2).replace(".", ",")}
-                           </span>
-                        </div>
+                        item.quantity > 0 && (
+                           <div key={item.id}>
+                              <div>
+                                 <FontAwesomeIcon
+                                    icon="minus-circle"
+                                    style={{ color: "#2acdbd" }}
+                                    onClick={() => handleRemoveItem(item)}
+                                 />
+                                 <span> {item.quantity} </span>
+                                 <FontAwesomeIcon
+                                    icon="plus-circle"
+                                    style={{ color: "#2acdbd" }}
+                                    onClick={() => handleAddItem(item)}
+                                 />
+                              </div>
+                              <div>{item.title}</div>
+                              <div>
+                                 {Number(item.price)
+                                    .toFixed(2)
+                                    .replace(".", ",")}
+                              </div>
+                           </div>
+                        )
                      );
                   })}
                </div>
-               <div>
+               <div className="pricing-details">
                   <div>
                      Sous-total = {subTotal.toFixed(2).replace(".", ",")}
                   </div>
@@ -32,10 +51,10 @@ const Cart = ({ data, cart, setCart }) => {
                      {delivery.toFixed(2).replace(".", ",")}
                   </div>
                </div>
-               <div>
+               <div className="total">
                   Total = {(subTotal + delivery).toFixed(2).replace(".", ",")}
                </div>
-            </>
+            </div>
          ) : (
             <span>Votre panier est vide</span>
          )}

@@ -1,4 +1,4 @@
-const Meal = ({ data, meal, cart, setCart }) => {
+const Meal = ({ meal, handleAddItem }) => {
    // Deal with descriptions when too long
    let shortDescription = "";
    const wordsInDescription = meal.description.split(" ");
@@ -9,41 +9,10 @@ const Meal = ({ data, meal, cart, setCart }) => {
    } else {
       shortDescription = meal.description;
    }
-   // console.log("data", data);
-
-   const handleAddToCart = () => {
-      const newCart = [...cart];
-      if (cart.length === 0) {
-         console.log("New item created");
-         newCart.push({
-            id: meal.id,
-            quantity: 1,
-            title: meal.title,
-            price: meal.price,
-         });
-         setCart(newCart);
-      } else {
-         for (let i = 0; i < cart.length; i++) {
-            if (cart[i].id === meal.id) {
-               console.log("Added to existing");
-               cart[i].quantity += 1;
-               setCart(newCart);
-            } else {
-               newCart.push({
-                  id: meal.id,
-                  quantity: 1,
-                  title: meal.title,
-                  price: meal.price,
-               });
-               setCart(newCart);
-            }
-         }
-      }
-   };
 
    return (
       // Return a card with the meal details
-      <div className="meal-card" onClick={handleAddToCart}>
+      <div className="meal-card" onClick={() => handleAddItem(meal)}>
          <div>
             <h3>{meal.title}</h3>
             <p>{shortDescription}</p>

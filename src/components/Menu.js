@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import Meal from "./Meal";
 
-const Menu = ({ data, cart, setCart }) => {
+const Menu = ({ data, handleAddItem }) => {
    return (
       <div className="menu-items">
          {/* Map function to loop through each category */}
@@ -18,10 +18,8 @@ const Menu = ({ data, cart, setCart }) => {
                            return (
                               <Meal
                                  key={meal.id}
-                                 data={data}
                                  meal={meal}
-                                 cart={cart}
-                                 setCart={setCart}
+                                 handleAddItem={handleAddItem}
                               />
                            );
                         })}

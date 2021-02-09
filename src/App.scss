@@ -161,16 +161,22 @@ header {
       > div {
          width: 100%;
          margin-bottom: 10px;
-         &:nth-child(1) {
-            color: #868a8a;
-            font-weight: 300;
+         .order-details > div {
+            display: flex;
+            margin-bottom: 15px;
+            // justify-content: space-between;
+            > :first-child {
+               display: flex;
+               justify-content: space-between;
+            }
+            > :not(:last-child) {
+               margin-right: 25px;
+            }
+            > :last-child {
+               margin-left: auto;
+            }
          }
       }
-      // .order-details {
-      //    color: #868a8a;
-      //    font-weight: 300;
-      //    margin-bottom: 10px;
-      // }
    }
 }
 

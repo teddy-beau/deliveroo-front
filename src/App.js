@@ -5,6 +5,9 @@ import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
 import MainContent from "./components/MainContent";
 import Footer from "./components/Footer";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+library.add(faPlusCircle, faMinusCircle);
 
 function App() {
    const [data, setData] = useState([]);
