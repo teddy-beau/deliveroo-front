@@ -21,13 +21,26 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                               <div>
                                  <FontAwesomeIcon
                                     icon="minus-circle"
-                                    style={{ color: "#2acdbd" }}
+                                    style={{
+                                       color: "#2acdbd",
+                                    }}
                                     onClick={() => handleRemoveItem(item)}
                                  />
-                                 <span> {item.quantity} </span>
+                                 <span
+                                    style={{
+                                       width: 25,
+                                       textAlign: "center",
+                                       color: "#868a8a",
+                                    }}
+                                 >
+                                    {" "}
+                                    {item.quantity}{" "}
+                                 </span>
                                  <FontAwesomeIcon
                                     icon="plus-circle"
-                                    style={{ color: "#2acdbd" }}
+                                    style={{
+                                       color: "#2acdbd",
+                                    }}
                                     onClick={() => handleAddItem(item)}
                                  />
                               </div>
@@ -36,6 +49,7 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                                  {Number(item.price)
                                     .toFixed(2)
                                     .replace(".", ",")}
+                                 &nbsp;€
                               </div>
                            </div>
                         )
@@ -44,15 +58,19 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                </div>
                <div className="pricing-details">
                   <div>
-                     Sous-total = {subTotal.toFixed(2).replace(".", ",")}
+                     <div>Sous-total</div>
+                     <div>{subTotal.toFixed(2).replace(".", ",")}&nbsp;€</div>
                   </div>
                   <div>
-                     Frais de livraison ={" "}
-                     {delivery.toFixed(2).replace(".", ",")}
+                     <div>Frais de livraison</div>
+                     <div>{delivery.toFixed(2).replace(".", ",")}&nbsp;€</div>
                   </div>
                </div>
                <div className="total">
-                  Total = {(subTotal + delivery).toFixed(2).replace(".", ",")}
+                  <div>Total</div>
+                  <div>
+                     {(subTotal + delivery).toFixed(2).replace(".", ",")}&nbsp;€
+                  </div>
                </div>
             </div>
          ) : (
