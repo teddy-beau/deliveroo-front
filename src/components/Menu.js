@@ -18,7 +18,7 @@ const Menu = ({ data, cart, setCart }) => {
                            return (
                               <Meal
                                  key={meal.id}
-                                 category={category.name}
+                                 data={data}
                                  meal={meal}
                                  cart={cart}
                                  setCart={setCart}

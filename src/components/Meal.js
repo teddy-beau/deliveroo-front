@@ -1,4 +1,4 @@
-const Meal = ({ category, meal, cart, setCart }) => {
+const Meal = ({ data, meal, cart, setCart }) => {
    // Deal with descriptions when too long
    let shortDescription = "";
    const wordsInDescription = meal.description.split(" ");
@@ -9,39 +9,33 @@ const Meal = ({ category, meal, cart, setCart }) => {
    } else {
       shortDescription = meal.description;
    }
-   console.log("cat", category);
+   // console.log("data", data);
 
    const handleAddToCart = () => {
-      if (cart.length === 0) {
-         console.log("Main if");
-         const newCart = [...cart];
-         newCart.push({
-            id: meal.id,
-            quantity: 1,
-            title: meal.title,
-            price: meal.price,
+      return data.map((menuCategory) => {
+         // console.log("menuCategory", menuCategory);
+         return menuCategory.meals.map((categoryMeal) => {
+            return data.map((cartItem) => {
+               // console.log("categoryMeal", categoryMeal);
+               console.log("cartItem.id", cartItem.id);
+               console.log("categoryMeal.id", categoryMeal.id);
+               if (cart.length === 0) {
+                  const newCart = [...cart];
+                  newCart.push({
+                     id: meal.id,
+                     quantity: 1,
+                     title: meal.title,
+                     price: meal.price,
+                  });
+                  setCart(newCart);
+               } else if (categoryMeal.id === cartItem.id) {
+                  console.log("Coucou");
+               } else {
+                  console.log("Bye");
+               }
+            });
          });
-         setCart(newCart);
-      } else {
-         console.log("Main else");
-         const newCart = [...cart];
-         newCart.map((newCartItem) => {
-            if (newCartItem.id === meal.id) {
-               console.log("Main else, then if");
-               newCartItem.quantity += 1;
-               setCart(newCart);
-            } else {
-               console.log("Main else, then else");
-               newCart.push({
-                  id: meal.id,
-                  quantity: 1,
-                  title: meal.title,
-                  price: meal.price,
-               });
-               setCart(newCart);
-            }
-         });
-      }
+      });
    };
    return (
       // Return a card with the meal details
