@@ -9,6 +9,9 @@
    &.comp-menu-cart {
       background-color: #f3f5f5;
    }
+   &.comp-footer {
+      background-color: #f3f5f5;
+   }
 }
 
 header {
@@ -54,7 +57,7 @@ header {
    width: 96vw;
    max-width: 1200px;
    margin: 0 auto;
-   padding: 30px 0;
+   padding-top: 30px;
    display: flex;
    justify-content: space-between;
    .menu-items {
@@ -154,6 +157,7 @@ header {
          &.active {
             background-color: #2acdbd;
             color: #ffffff;
+            cursor: pointer;
          }
       }
       > div {
@@ -200,6 +204,24 @@ header {
       }
    }
 }
+footer {
+   padding: 50px 0;
+   font-size: 12px;
+   font-weight: 300;
+   color: #868a8a;
+   text-align: center;
+   strong {
+      font-weight: 500;
+   }
+   a {
+      font-weight: 500;
+      color: #868a8a;
+      text-decoration: none;
+   }
+   a:hover {
+      text-decoration: underline;
+   }
+}
 
 @media (max-width: 1200px) {
    .meal-list {
@@ -243,5 +265,8 @@ header {
          width: 100%;
          box-shadow: 0px -20px 20px rgba(50, 50, 50, 0.1);
       }
+   }
+   footer {
+      display: none;
    }
 }

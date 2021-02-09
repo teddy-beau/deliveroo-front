@@ -23,6 +23,7 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                                     icon="minus-circle"
                                     style={{
                                        color: "#2acdbd",
+                                       cursor: "pointer",
                                     }}
                                     onClick={() => handleRemoveItem(item)}
                                  />
@@ -40,6 +41,7 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                                     icon="plus-circle"
                                     style={{
                                        color: "#2acdbd",
+                                       cursor: "pointer",
                                     }}
                                     onClick={() => handleAddItem(item)}
                                  />
