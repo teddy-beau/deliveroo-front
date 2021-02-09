@@ -8,12 +8,14 @@ const Menu = ({ data }) => {
             <div className="menu-items">
                {data.map((category, index) => {
                   return (
-                     <section key={index}>
-                        <h2>{category.name}</h2>
-                        <div className="meal-list">
-                           <Meal meals={category.meals} />
-                        </div>
-                     </section>
+                     category.meals.length !== 0 && (
+                        <section key={index}>
+                           <h2>{category.name}</h2>
+                           <div className="meal-list">
+                              <Meal meals={category.meals} />
+                           </div>
+                        </section>
+                     )
                   );
                })}
             </div>
