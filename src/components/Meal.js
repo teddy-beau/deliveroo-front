@@ -12,31 +12,34 @@ const Meal = ({ data, meal, cart, setCart }) => {
    // console.log("data", data);
 
    const handleAddToCart = () => {
-      return data.map((menuCategory) => {
-         // console.log("menuCategory", menuCategory);
-         return menuCategory.meals.map((categoryMeal) => {
-            return data.map((cartItem) => {
-               // console.log("categoryMeal", categoryMeal);
-               console.log("cartItem.id", cartItem.id);
-               console.log("categoryMeal.id", categoryMeal.id);
-               if (cart.length === 0) {
-                  const newCart = [...cart];
-                  newCart.push({
-                     id: meal.id,
-                     quantity: 1,
-                     title: meal.title,
-                     price: meal.price,
-                  });
-                  setCart(newCart);
-               } else if (categoryMeal.id === cartItem.id) {
-                  console.log("Coucou");
-               } else {
-                  console.log("Bye");
-               }
-            });
+      if (cart.length === 0) {
+         const newCart = [...cart];
+         newCart.push({
+            id: meal.id,
+            quantity: 1,
+            title: meal.title,
+            price: meal.price,
          });
-      });
+         setCart(newCart);
+      } else {
+         const newCart = [...cart];
+         newCart.map((cartItem) => {
+            if (meal.id === cartItem.id) {
+               cartItem.quantity += 1;
+               setCart(newCart);
+            } else {
+               newCart.push({
+                  id: meal.id,
+                  quantity: 1,
+                  title: meal.title,
+                  price: meal.price,
+               });
+               setCart(newCart);
+            }
+         });
+      }
    };
+
    return (
       // Return a card with the meal details
       <div className="meal-card" onClick={handleAddToCart}>
