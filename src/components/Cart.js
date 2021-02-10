@@ -55,7 +55,7 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                               </div>
                               <div>{item.title}</div>
                               <div>
-                                 {Number(item.price)
+                                 {Number(item.price * item.quantity)
                                     .toFixed(2)
                                     .replace(".", ",")}
                                  &nbsp;€
