@@ -31,6 +31,8 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                                     style={{
                                        color: "#2acdbd",
                                        cursor: "pointer",
+                                       position: "relative",
+                                       top: 2,
                                     }}
                                     onClick={() => handleRemoveItem(item)}
                                  />
@@ -49,6 +51,8 @@ const Cart = ({ cart, handleAddItem, handleRemoveItem }) => {
                                     style={{
                                        color: "#2acdbd",
                                        cursor: "pointer",
+                                       position: "relative",
+                                       top: 2,
                                     }}
                                     onClick={() => handleAddItem(item)}
                                  />
