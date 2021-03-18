@@ -1,6 +1,6 @@
 # Deliveroo - Restaurant Page
 
-![Deliveroo Logo](./src/assets/images/deliveroo-logo.svg)
+<img src="./src/assets/images/deliveroo-logo.svg" alt="Deliveroo logo" height="80px" />
 
 ## About this project
 
